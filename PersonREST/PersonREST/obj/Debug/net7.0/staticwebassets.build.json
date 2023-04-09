@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "sqELkGnr4w0VqYqfqyTNsoCJcpeTlB75aQL2vOzjYkY=",
+  "Source": "PersonREST",
+  "BasePath": "_content/PersonREST",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
