@@ -1,17 +1,17 @@
+ï»¿using PersonREST.Services.Implementations;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using PersonREST.Model.Context;
-using PersonREST.Services.Implementations;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
-//Conexão com o Banco de Dados.
+// Load configuration from appsettings.json
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-string connection = builder.Configuration["MySQLConnection:MySQLConnectionString"];
-builder.Services.AddDbContext<MySQLContext>(options => options.UseMySql(connection, ServerVersion.AutoDetect(connection)));
+var connection = builder.Configuration["MySQLConnection:MySQLConnectionString"];
 
 // Add services to the container.
 builder.Services.AddScoped<IPersonService, PersonServiceImplementation>();
+builder.Services.AddDbContext<MySQLContext>(options => options.UseMySql(connection, ServerVersion.AutoDetect(connection)));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

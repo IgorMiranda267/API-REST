@@ -58,9 +58,6 @@ namespace PersonREST.Services.Implementations
 
         public Person Update(Person person)
         {
-            if (!Exists(person.Id))
-                return new Person();
-
             var result = _context.Persons.Find(person.Id);
 
             if (result == null)
@@ -75,11 +72,6 @@ namespace PersonREST.Services.Implementations
                 throw new Exception($"Error updating person: {ex.Message}");
             }
             return person;
-        }
-
-        private bool Exists(long id)
-        {
-            return _context.Persons.Any(p => p.Id.Equals(id));
         }
     }
 }
