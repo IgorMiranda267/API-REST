@@ -4,8 +4,9 @@ using PersonREST.Services.Implementations;
 
 namespace PersonREST.Controllers
 {
+    [ApiVersion("1")]
     [ApiController]
-    [Route("[controller]")]
+    [Route("v1/api/")]
     public class PersonController : ControllerBase
     {
         private readonly ILogger<PersonController> _logger;
@@ -17,13 +18,13 @@ namespace PersonREST.Controllers
             _personService = personService;
         }
 
-        [HttpGet]
+        [HttpGet, Route("ListPerson")]
         public IActionResult Get()
         {
             return Ok(_personService.FindAll());
         }
 
-        [HttpGet("{id}")]
+        [HttpGet, Route("SearchPerson/{id}")]
         public IActionResult Get(long id)
         {
             OkObjectResult person = Ok(_personService.FindByID(id));
@@ -32,7 +33,7 @@ namespace PersonREST.Controllers
             return Ok(person);
         }
 
-        [HttpPost("/create")]
+        [HttpPost, Route("AddPerson")]
         public IActionResult Post([FromBody]Person person)
         {
             if (person == null)
@@ -40,7 +41,7 @@ namespace PersonREST.Controllers
             return Ok(_personService.Create(person));
         } 
         
-        [HttpPut("/update")]
+        [HttpPut, Route("UpdatePerson")]
         public IActionResult Put([FromBody]Person person)
         {
             if (person == null)
@@ -48,7 +49,7 @@ namespace PersonREST.Controllers
             return Ok(_personService.Update(person));
         }
 
-        [HttpDelete("/delete/{id}")]
+        [HttpDelete, Route("RemovePerson/{id}")]
         public IActionResult Delete(long id)
         {
             _personService.Delete(id);

@@ -36,3 +36,4 @@ E:\Estudos\API-REST\PersonREST\PersonREST\bin\Debug\net7.0\Microsoft.EntityFrame
 E:\Estudos\API-REST\PersonREST\PersonREST\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
 E:\Estudos\API-REST\PersonREST\PersonREST\bin\Debug\net7.0\MySqlConnector.dll
 E:\Estudos\API-REST\PersonREST\PersonREST\bin\Debug\net7.0\Pomelo.EntityFrameworkCore.MySql.dll
+E:\Estudos\API-REST\PersonREST\PersonREST\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.Versioning.dll
